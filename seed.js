@@ -4,7 +4,7 @@ var pets = [
     name: 'Fido',
     age: 12,
     type: 'dog',
-    breed: 'mutt',
+    breed: 'Mutt',
     gender: 'male',
     img: 'Img url goes here',
     ownerId: 100
@@ -24,7 +24,7 @@ var pets = [
     name: 'Wookie',
     age: 9,
     type: 'cat',
-    breed: 'mongral',
+    breed: 'Mongral',
     gender: 'male',
     img: 'Img url goes here',
     ownerId: 103
@@ -68,6 +68,16 @@ var pets = [
     gender: 'male',
     img: 'Img url goes here',
     ownerId: 107
+  },
+  {
+    id:8,
+    name: 'BJ',
+    age: 8,
+    type: 'dog',
+    breed: 'Mutt',
+    gender: 'male',
+    img: 'Img url goes here',
+    ownerId: 108
   },
 ];
 

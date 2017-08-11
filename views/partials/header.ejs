@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %> | <%= page %></title>
-    <!-- <link rel="shortcut icon" href="imgs/tent2.png"> -->
+    <link rel="shortcut icon" href="images/love-icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
   </head>
@@ -18,7 +18,9 @@
             <span class="icon-bar"></span>
           </button>
           <div class="navbar-brand">
-            <a href="/" id="brandName">PetsLiveOn</a>
+            <a href="/" id="brandName" style="background-color:#fff;color:#000;padding:3px;display: inline-block;border-radius:8px">
+              <img src="images/love-icon.png" width="20" alt="">
+              PetsLiveOn</a>
           </div>
         </div>
         <div class="navbar-collapse collapse" id="myNavbar">
@@ -41,7 +43,6 @@
           </ul>
           <ul class="navbar-nav nav navbar-right">
           <%  if (!currentUser){ %>
-              <!-- <li class="bkBtn"><a href="/login">Login</a></li> -->
               <li>
                 <a href="/login">
                   <button class="bkBtn" type="button" name="button">Login</button>
