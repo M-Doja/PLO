@@ -65,6 +65,9 @@ body {
   background: #000;
   color: #fff;
 }
+button{
+  outline: none;
+}
 
 .btn-large {
   width: 272px;
