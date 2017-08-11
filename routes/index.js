@@ -1,5 +1,8 @@
 var express = require('express');
+var Pets = require('../seed');
 var router = express.Router();
+console.log('Router here:');
+console.log(Pets);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,7 +21,12 @@ router.get('/community', function(req, res, next) {
 
 /* GET memorial page. */
 router.get('/memorial', function(req, res, next) {
-  res.render('memorial', { title: 'PetsLiveOn', pageHeader: 'View PetsLiveOn Memorials', page: 'Memorial' });
+  res.render('memorial', {
+    title: 'PetsLiveOn',
+    pets: Pets,
+    pageHeader: 'View PetsLiveOn Memorials',
+    page: 'Memorial'
+  });
 });
 
 /* GET Profile page. */
