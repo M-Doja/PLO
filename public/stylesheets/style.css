@@ -15,10 +15,15 @@ body {
   padding-bottom: 6rem;
   min-height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
 }
+
+.topSpace-3{
+  margin-top: 3em;
+}
+
 #brandName {
   color:white;
+  text-decoration: none;
 }
 .demo {
   margin: 0 auto;
@@ -36,7 +41,7 @@ body {
   text-align: center;
 }
 
-/*login buttons*/
+/*login / register buttons*/
 .bkBtn {
   border: 2px #fff solid;
   background: transparent;
@@ -52,6 +57,14 @@ body {
   font-weight: bold;
 }
 
+.loginBtn.bkBtn {
+  border: 2px #000 solid;
+}
+
+.loginBtn.bkBtn:hover{
+  background: #000;
+  color: #fff;
+}
 /*  */
 /*  */
 /*  */

@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+  <h1><%= pageHeader %></h1>
+
+  <div class="container text-center topSpace-3">
+    <div class="row">
+      <form class="enterForm" action="/login" method="post" autocomplete="off">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input required class="form-control" id="username" type="text" name="user[username]" placeholder="User name" >
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input required class="form-control" id="password" type="password" name="user[password]" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input required class="form-control" id="email" type="email" name="user[email]" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input class="loginBtn submit bkBtn"type="submit">
+        </div>
+        <a href="/" class="btn-text">Back</a>
+      </form>
+    </div>
+  </div>
+
+
+
+
+<% include partials/footer %>
