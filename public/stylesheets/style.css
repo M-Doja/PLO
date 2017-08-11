@@ -65,8 +65,8 @@ body {
   background: #000;
   color: #fff;
 }
-.btn:focus{
-  outline: none;
+.btn:active:focus, .btn:focus {
+    outline: none;
 }
 
 .btn-large {
