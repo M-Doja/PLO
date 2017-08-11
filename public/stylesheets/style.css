@@ -66,11 +66,12 @@ body {
   color: #fff;
 }
 button{
-  outline: none;
+
 }
 
 .btn-large {
   width: 272px;
+  outline: none;
 }
 /* MEMORIAL PAGE */
 #searchPets{
