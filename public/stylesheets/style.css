@@ -1,0 +1,60 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+#brandName {
+  color:white;
+}
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  width: 94%;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+/*login buttons*/
+.bkBtn {
+  border: 2px #fff solid;
+  background: transparent;
+  outline: none;
+  border-radius: 12px;
+  width: 72px;
+  transition: all .3s linear;
+}
+
+.bkBtn:hover{
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
