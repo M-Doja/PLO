@@ -80,13 +80,13 @@ app.use((req, res, next) => {
 
 
 var mainRoutes = require('./routes/index')
-var campRoutes = require('./routes/campgrounds');
+var petRoutes = require('./routes/pets');
 var commentRoutes = require('./routes/comments');
 
 
 app.use('/', mainRoutes);
-app.use('/campgrounds', campRoutes);
-app.use('/campgrounds/:id/comments', commentRoutes);
+app.use('/pets', petRoutes);
+app.use('/pets/:id/comments', commentRoutes);
 
 
 app.listen(port, () => {

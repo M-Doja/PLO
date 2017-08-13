@@ -76,7 +76,7 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
 
 // RENDER CAMPGROUND ADD FORM
 router.get('/new', Mid.isLoggedIn, (req, res) => {
-  res.render('campgrounds/new');
+  res.render('pets/new');
 });
 
 // RENDER SINGLE SITE ON PAGE
@@ -85,7 +85,7 @@ router.get('/:id', (req, res) => {
    if (err) {
      console.log(err);
    }else {
-     res.render('campgrounds/show', {campground: site})
+     res.render('pets/show', {campground: site})
    }
  });
 });
@@ -96,7 +96,7 @@ router.get('/:id/edit', Mid.checkCampgroundOwnership, (req, res) => {
     if (err) {
       console.log(err);
     }else {
-      res.render('campgrounds/edit', {campground: campground});
+      res.render('pets/edit', {campground: campground});
     }
   });
 });
@@ -122,7 +122,7 @@ router.put('/:id', (req, res) => {
             res.redirect("back");
         } else {
             req.flash("success","Successfully Updated!");
-            res.redirect("/campgrounds/" + campground._id);
+            res.redirect("/pets/" + campground._id);
         }
     });
   });
@@ -133,9 +133,9 @@ router.delete('/:id', Mid.checkCampgroundOwnership, (req, res) => {
   Pet.findByIdAndRemove(req.params.id, (err, campground) => {
     if (err) {
       console.log(err);
-      res.redirec('/campgrounds');
+      res.redirec('/pets');
     }else {
-      res.redirect('/campgrounds')
+      res.redirect('/pets')
     }
   });
 });

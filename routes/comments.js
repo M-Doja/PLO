@@ -2,14 +2,14 @@ const express     = require('express'),
       passport    = require('passport'),
       router      = express.Router({mergeParams: true}),
       flash       = require('connect-flash'),
-      Campground  = require('../models/pet'),
+      Pet         = require('../models/pet'),
       Comments    = require('../models/comment'),
       Mid         = require('../middleware/index');
 
 
 // COMMENT FORM ROUTE
 router.get('/new', Mid.isLoggedIn, (req, res) => {
-  Campground.findById(req.params.id, (err, site) => {
+  Pet.findById(req.params.id, (err, site) => {
     if (err) {
       console.log(err);
     } else {
@@ -20,10 +20,10 @@ router.get('/new', Mid.isLoggedIn, (req, res) => {
 
 // ADD COMMENT ROUTE
 router.post('/', Mid.isLoggedIn, (req, res) => {
-  Campground.findById(req.params.id, (err, campground) => {
+  Pet.findById(req.params.id, (err, pet) => {
     if (err) {
       console.log(err);
-      res.redirect('/campgrounds');
+      res.redirect('/pets');
     } else {
       Comments.create(req.body.comments, (err, comment) => {
         if (err) {
@@ -33,10 +33,10 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
           comment.author.id = req.user.id;
           comment.author.username = req.user.username;
           comment.save();
-          campground.comments.push(comment);
-          campground.save();
+          pet.comments.push(comment);
+          pet.save();
           req.flash('success', 'Successfully added a comment');
-          res.redirect(`/campgrounds/${campground._id}`);
+          res.redirect(`/pets/${pet._id}`);
         }
       });
     }
@@ -64,7 +64,7 @@ router.put('/:comment_id/', Mid.checkCommentOwnership,  (req, res) => {
       console.log(err);
       res.redirect('back');
     }else {
-      res.redirect('/campgrounds/'+req.params.id);
+      res.redirect('/pets/'+req.params.id);
     }
   });
 });
@@ -77,7 +77,7 @@ router.delete('/:comment_id', Mid.checkCommentOwnership, (req, res) => {
       console.log(err);
       res.redirec('back');
     }else {
-      res.redirect('/campgrounds/'+req.params.id);
+      res.redirect('/pets/'+req.params.id);
     }
   });
 });
