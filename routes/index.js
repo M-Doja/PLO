@@ -4,7 +4,7 @@ const express     = require('express'),
       flash       = require('connect-flash'),
       Mid         = require('../middleware/index'),
       config      = require('../config/config'),
-      Pets        = require('../seed'),
+      Pets        = require('../models/pet'),
       User        = require('../models/user');
 // console.log(Pets);
 
@@ -17,8 +17,37 @@ router.get('/about', (req, res) => {
 router.get('/community', (req, res) => {
   res.render('community', {pageHeader: "Welcome to the PetsLiveOn Community!"});
 });
-router.get('/memorial', (req, res) => {
-  res.render('memorial', {pageHeader: "PetsLiveOn Memorials",pets: Pets});
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+router.get('/memorials', (req, res) => {
+  if(req.query.search) {
+      const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+      // Get all campgrounds from DB
+      Pets.find({name: regex}, function(err, allPets){
+         if(err){
+            console.log(err);
+         } else {
+            res.render("memorial",{pets: allPets, pageHeader: "PetsLiveOn Memorials"});
+         }
+      });
+  } else {
+    Pets.find({}, function(err, allPets){
+       if(err){
+           console.log(err);
+       } else {
+          if(req.xhr) {
+            res.json(allPets);
+            console.log(allPets);
+          } else {
+            res.render("memorial",{pageHeader: "PetsLiveOn Memorials",pets: allPets});
+          }
+       }
+    });
+  }
+
 });
 
 // ========================================
@@ -43,7 +72,7 @@ router.post('/register', (req, res) => {
     }
     passport.authenticate('local')(req, res, function(){
       req.flash('success', 'Successful Registraion! Welcome to YelpCamp '+ user.username );
-      res.redirect('/campgrounds');
+      res.redirect('/pets');
     });
   });
 });
@@ -54,7 +83,7 @@ router.get('/login', (req, res) => {
 
 // SIGN UP
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/campgrounds',
+  successRedirect: '/pets',
   failureRedirect: '/login'
 }), (req, res) => {
 

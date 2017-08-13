@@ -3,11 +3,9 @@ var mongoose = require('mongoose');
 // SCHEMA
 var petSchema = new mongoose.Schema({
   name: String,
-  images: [{
-    data: Buffer,
-    contentType: String
-  }],
+  images:String,
   description: String,
+  type: String,
   age: Number,
   breed: String,
   location: String,

@@ -10,47 +10,22 @@
       <div class="container">
 
         <div class="text-center">
-          <img id="pic"  class="inline"src="imgs/tent2.png"  width="130" alt="">
+          <img id="pic"  class="inline"src="imgs/love-icon.png"  width="130" alt="">
           <h1 class="inline text-center">Welcome to PetsLiveOn</h1>
         </div>
       <!-- </div> -->
 
         <p class="text-center"><strong>View pet obituaries</strong></p>
         <p>
-          <a class="btn btn-prim btn-block" href="/pets/new"> Add New Pet Memorial</a>
+          <a class="btn btn-primary btn-block" href="/pets/new"> Add New Pet Memorial</a>
         </p>
         <p>
-          <form action="/pets" method="GET" class="form-inline text-center" id="campground-search">
-            <div class="form-group">
-              <input type="text" name="search" placeholder="Campground search..." class="form-control">
-            </div>
-            <div class="form-group">
-              <input class="btn btn-prim btn-sm" id="srcBtn"  type="submit" value="Search" >
-            </div>
-            <div class="form-group">
-              <a href="/pets"class="btn-text">reset form</a>
-            </div>
-          </form>
+
          </p>
       </div>
     </header>
 
-    <div class="row text-center" id="display" >
-      <% campgrounds.forEach(function(campsite){ %>
-        <div class="col-md-3 col-sm-6 ">
-          <div class="small ring">
-            <img src="<%= campsite.images%>" alt="">
-            <div class="caption">
-              <h4 class="siteName"><%= campsite.name.toUpperCase() %></h4>
-            </div>
-            <p class="white">
-              <a  href="/campgrounds/<%= campsite._id %>" class="btn btn-prim">More information</a>
-            </p>
 
-          </div>
-        </div>
-      <% })%>
-    </div>
 
 
 

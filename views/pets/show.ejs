@@ -1,36 +1,36 @@
 <% include ../partials/header %>
-<% include ../partials/navbar %>
+<% include ../partials/navbar2 %>
 
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <p class="lead"><strong>Site: <%= campground.name.toUpperCase() %></strong></p>
-      <p><a href="/campgrounds" class="btn-a"><strong>< Back to Campgrounds</strong></a></p><br>
+      <p class="lead"><strong>In Remeberance of <%= pet.name.toUpperCase() %></strong></p>
+      <p><a href="/memorials" class="btn-a"><strong>< Back to Memorials</strong></a></p><br>
       <div class="list-group">
         <li class="list-group-item active">Location</li>
-        <li class="list-group-item"><%= campground.location %></li>
-        <li class="list-group-item">latitude: <%= campground.lat %></li>
-        <li class="list-group-item">longitude: <%= campground.lng %></li>
+        <li class="list-group-item"><%= pet.location %></li>
+        <li class="list-group-item">latitude: <%= pet.lat %></li>
+        <li class="list-group-item">longitude: <%= pet.lng %></li>
       </div>
       <div id="map"></div>
     </div>
 
     <div class="col-md-9">
       <div class="thumbnail">
-        <img src="<%= campground.images %>" alt="">
+        <img src="<%= pet.images %>" alt="">
         <div class="caption-full">
-          <h4 class="pull-right">Cost Per Night: $<%= campground.price %></h4>
-          <h4><a href="#" class="btn-text"><%= campground.name.toUpperCase() %></a></h4>
-          <p><%= campground.description %></p>
+          <h4 class="pull-right">Cost Per Night: $<%= pet.price %></h4>
+          <h4><a href="#" class="btn-text"><%= pet.name.toUpperCase() %></a></h4>
+          <p><%= pet.description %></p>
           <p>
-            <em>Submitted by: <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em><br>
+            <em>Submitted by: <%= pet.owner.username %>, <%= moment(pet.createdAt).fromNow() %></em><br>
           </p>
-           <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+           <% if(currentUser && pet.owner.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
              <div class="">
                <button type="button" id="setBtn"data-toggle="collapse" data-target="#mySetting"class="settingBtn"><span class="glyphicon glyphicon-cog"></span> Settings</button>
                <div  class="collapse" id="mySetting">
-                 <a class="btn btn-prim" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                 <form class="deleteform" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
+                 <a class="btn btn-prim" href="/campgrounds/<%= pet._id %>/edit">Edit</a>
+                 <form class="deleteform" action="/campgrounds/<%= pet._id %>?_method=DELETE" method="post">
                    <button class="btn btn-danger" >Delete</button>
                  </form>
                </div>
@@ -40,10 +40,10 @@
       </div>
       <div class="well">
         <div class="text-right">
-          <a class="btn btn-prim"href="/campgrounds/<%= campground._id %>/comments/new">Leave A Review</a>
+          <a class="btn btn-prim"href="/campgrounds/<%= pet._id %>/comments/new">Leave A Review</a>
           <hr>
         </div>
-        <% campground.comments.forEach(function(comment){ %>
+        <% pet.comments.forEach(function(comment){ %>
           <div class="row">
             <div class="col-md-12">
               <strong><%= comment.author.username %></strong>
@@ -52,8 +52,8 @@
                <%= comment.text %>
               </p>
               <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-              <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
-              <form class="deleteform" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <a href="/campgrounds/<%= pet._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
+              <form class="deleteform" action="/campgrounds/<%= pet._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-xs btn-danger" >Delete</button>
               </form>
               <% }%>
@@ -67,8 +67,8 @@
 </div>
 <script>
   function initMap() {
-    var lat = <%= campground.lat %>;
-    var lng = <%= campground.lng %>;
+    var lat = <%= pet.lat %>;
+    var lng = <%= pet.lng %>;
     var center = {lat: lat, lng: lng };
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
@@ -76,9 +76,9 @@
         scrollwheel: false
     });
     var contentString = `
-      <strong><%= campground.name %><br />
-      <%= campground.location %></strong>
-      <p><%= campground.description %></p>
+      <strong><%= pet.name %><br />
+      <%= pet.location %></strong>
+      <p><%= pet.description %></p>
     `
     var infowindow = new google.maps.InfoWindow({
       content: contentString

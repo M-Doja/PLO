@@ -23,7 +23,7 @@ router.get("/", function(req, res){
          if(err){
             console.log(err);
          } else {
-            res.render("campgrounds/index",{campgrounds: allPets, page: 'campgrounds'});
+            res.render("pets/index",{pets: allPets, page: 'campgrounds'});
          }
       });
   } else {
@@ -35,7 +35,10 @@ router.get("/", function(req, res){
             if(req.xhr) {
               res.json(allPets);
             } else {
-              res.render("campgrounds/index",{campgrounds: allPets, page: 'campgrounds'});
+              res.render("pets/index",{
+                // pets: allPets,
+                page: 'campgrounds'
+              });
             }
          }
       });
@@ -56,6 +59,8 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
       images: req.body.images,
       description: req.body.description,
       age: req.body.age,
+      breed: req.body.breed,
+      type: req.body.type,
       owner: owner,
       location: location,
       locationStr: encodedAddress,
@@ -68,11 +73,16 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
         console.log(err);
       }else {
         console.log('Newly added pet');
-        res.redirect('memorial');
+        res.redirect('pets');
       }
     });
   });
 });
+
+// router.get('/memorials', (req, res) => {
+//   res.render('memorial', {pageHeader: "PetsLiveOn Memorials",pets: Pets});
+// });
+
 
 // RENDER CAMPGROUND ADD FORM
 router.get('/new', Mid.isLoggedIn, (req, res) => {
@@ -81,11 +91,11 @@ router.get('/new', Mid.isLoggedIn, (req, res) => {
 
 // RENDER SINGLE SITE ON PAGE
 router.get('/:id', (req, res) => {
- Pet.findById(req.params.id).populate('comments').exec(( err, site) => {
+ Pet.findById(req.params.id).populate('comments').exec(( err, onePet) => {
    if (err) {
      console.log(err);
    }else {
-     res.render('pets/show', {campground: site})
+     res.render('pets/show', {pet: onePet})
    }
  });
 });
