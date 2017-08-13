@@ -1,29 +1,35 @@
 {
-  "name": "lifepet",
+  "name": "v1",
   "version": "1.0.0",
-  "private": true,
+  "description": "A Node & Express web application for public rating od camp sites.",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "6.10.3"
   },
+  "keywords": [
+    "node",
+    "express",
+    "passport"
+  ],
   "author": "Micah Dunson",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "~1.15.2",
+    "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "ejs": "~2.5.2",
-    "express": "~4.14.0",
-    "express-session": "^1.15.5",
-    "mongoose": "^4.11.6",
-    "morgan": "~1.7.0",
-    "multer": "^1.3.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "geocoder": "^0.2.3",
+    "method-override": "^2.3.9",
+    "moment": "^2.18.1",
+    "mongodb": "^2.1.7",
+    "mongoose": "^4.7.6",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.1.0",
-    "serve-favicon": "~2.3.0"
+    "passport-local-mongoose": "^4.0.0"
   }
 }

@@ -1,0 +1,214 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  /*font-family: "Helvetica Neue", Arial, sans-serif;*/
+}
+.enterForm{
+  max-width: 750px;
+}
+.inline {
+  display: inline-block;
+}
+#pic {
+  margin-top: -30px;
+  margin-bottom: -15px;
+}
+
+.white{
+  background-color: #fff;
+  width: 99.9%;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  border-radius: 0 0 1em 1em;
+}
+#mainDisplay{
+  padding-top: 2em;
+}
+#display {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2em 1em 0 1em;
+  border-radius: .75em;
+}
+p {
+  margin: 0 auto;
+}
+.form {
+  width: 40%;
+  margin: 30px auto;
+}
+
+.form .btn {
+  margin-top: 20px;
+}
+
+.viewBtn {
+  box-shadow: 2.5px 2.5px 2px rgba(255, 255, 255, 0.3);
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  background-color: #ddd;
+  color: #555;
+  transition: all .4s ease;
+}
+
+.viewBtn:hover {
+  background-color: #302520;
+}
+
+.siteName a,
+.siteName a:visited,
+.siteName a:hover {
+  text-decoration: none;
+  color: black;
+  transition: all .2s linear;
+  line-height: 21px;
+}
+.siteName{
+  margin: 0 auto;
+  padding: 15px;
+}
+ .siteName a:hover {
+  font-size: 20px;
+  text-shadow: 2px 2px 0  rgb(200, 175, 100)
+}
+
+.caption {
+  background-color: #f8f8f8;
+  width: 99.9%;
+  margin: auto;
+}
+
+.small img,
+.thumbnail img {
+  width: 100%;
+}
+@media (min-width:992px) {
+  .small img {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+.jumbotron {
+  border: #1c3d22 6.5px solid;
+}
+.ring {
+  /*border: 3.5px solid #2e6da4;*/
+  border: #165b1e 3.5px solid;
+  border-radius: 1em;
+  margin-bottom: 2em;
+}
+.ring img {
+  border-radius: 1em 1em 0 0;
+}
+
+.thumbnail, .small {
+  padding: 0;
+}
+
+.thumbnail .caption-full , .small .caption-full{
+  padding: 9px;
+}
+
+.deleteform {
+  display: inline-block;
+}
+/*==================================
+    REGISTRATION & LOGIN FORMS
+*/
+.titleForm {
+  color: white;
+}
+
+.loginBtn {
+  transition: color .2s linear;
+  margin: 10px;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 700;
+  width: 100px;
+}
+
+.loginBtn:hover {
+  color: red;
+}
+
+.enterForm {
+  margin: 30px auto;
+  border: 3px solid #302520;
+  border-radius: 8px;
+  padding: 5%;
+  background-color:#67966d;
+  box-shadow: 3px 3px 10px  rgba(255, 255, 255, 0.4);
+}
+
+#icon{
+  display: inline-block;
+  margin-top: -5px;
+}
+#brandName{
+  color: #444;
+  text-decoration: none;
+}
+
+
+#mySetting {
+  margin: 25px auto;
+}
+
+.settingBtn {
+  padding: 5px;
+  border-radius: 4px;
+  outline: none;
+}
+
+#srcBtn {
+  margin:auto  5px;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  width: 94%;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+/*SHOW PAGE*/
+/*==============================*/
+
+ {
+
+}

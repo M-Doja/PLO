@@ -1,10 +1,11 @@
 <% include partials/header %>
+<% include partials/navbar %>
 
 <div class="">
   <h1 class="text-center"><%= pageHeader %></h1>
 
   <div class="text-center">
-    <img src="images/love-icon.png" alt="">
+    <img src="imgs/love-icon.png" alt="">
   </div>
    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
    <div class="container-fluid">
@@ -12,10 +13,10 @@
        <div class="col-md-12">
          <form>
            <div class="form-group">
-  					<input type="text" required class="form-control" id="" placeholder="Search for Pets"/>
+  					<input type="text" required class="form-control" id="petSrchFd" placeholder="Search for Pets"/>
   				</div>
           <div class="form-group text-center">
-            <input type="submit" class="loginBtn bkBtn btn btn-large" value="Search" >
+            <input type="submit" class="loginBtn bkBtn btn btn-large" value="Search Memorials" >
           </div>
          </form>
        </div>
@@ -24,6 +25,11 @@
 
 
    <div class="row text-center">
+     <div class="">
+       <ul>
+         <li><a class="loginBtn bkBtn btn btn-large " href="/add_memorial">Add A Memorial</a></li>
+       </ul>
+     </div>
      <ul>
        <% pets.forEach(function(pet) { %>
          <div class="col-lg-3 col-sm-4">
@@ -31,7 +37,7 @@
              <h3><%= pet.name.toUpperCase() %></h3>
              <p>AGE <br><%= pet.age %></p>
             <div class="text-center">
-              <img src="/images/remembrance-2.jpg" width="120" alt="">
+              <img src="/imgs/remembrance-2.jpg" width="120" alt="">
             </div>
              <br>
 

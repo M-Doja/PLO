@@ -1,47 +1,76 @@
-var express = require('express');
-var Pets = require('../seed');
-var router = express.Router();
-console.log('Router here:');
-console.log(Pets);
+const express     = require('express'),
+      router      = express.Router(),
+      passport    = require('passport'),
+      flash       = require('connect-flash'),
+      Mid         = require('../middleware/index'),
+      config      = require('../config/config'),
+      Pets        = require('../seed'),
+      User        = require('../models/user');
+// console.log(Pets);
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'PetsLiveOn', pageHeader: 'PetsLiveOn', page: 'Home' });
+router.get('/', (req, res) => {
+  res.render('landing', {title: "Welcome!"});
+});
+router.get('/about', (req, res) => {
+  res.render('about', {pageHeader: "About PetsLiveOn"});
+});
+router.get('/community', (req, res) => {
+  res.render('community', {pageHeader: "Welcome to the PetsLiveOn Community!"});
+});
+router.get('/memorial', (req, res) => {
+  res.render('memorial', {pageHeader: "PetsLiveOn Memorials",pets: Pets});
 });
 
-/* GET about page. */
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'PetsLiveOn', pageHeader: 'About PetsLiveOn', page: 'About' });
+// ========================================
+// USER ROUTES
+// ========================================
+// GET REGISTER FORM
+router.get('/register', (req, res) => {
+  res.render('register');
 });
 
-/* GET community page. */
-router.get('/community', function(req, res, next) {
-  res.render('community', { title: 'PetsLiveOn', pageHeader: 'Join the PetsLiveOn Community', page: 'Community' });
-});
-
-/* GET memorial page. */
-router.get('/memorial', function(req, res, next) {
-  res.render('memorial', {
-    title: 'PetsLiveOn',
-    pets: Pets,
-    pageHeader: 'View PetsLiveOn Memorials',
-    page: 'Memorial'
+// SIGN UP
+router.post('/register', (req, res) => {
+  var newUser =  new User({username: req.body.username});
+  if (req.body.adminCode === config.SECRET) {
+    newUser.isAdmin= true;
+  }
+  User.register(newUser ,req.body.password, (err, user) => {
+    if (err) {
+      console.log(err);
+      req.flash('error', err.message);
+      res.render('register')
+    }
+    passport.authenticate('local')(req, res, function(){
+      req.flash('success', 'Successful Registraion! Welcome to YelpCamp '+ user.username );
+      res.redirect('/campgrounds');
+    });
   });
 });
 
-/* GET Profile page. */
-router.get('/profile', function(req, res, next) {
-  res.render('profile',{title: 'PetsLiveOn', pageHeader: 'Your PetsLiveOn Profile Here', page: 'Profile' });
+router.get('/login', (req, res) => {
+  res.render('login');
 });
 
-/* GET Login page. */
-router.get('/login', function(req, res, next) {
-  res.render('login',{title: 'PetsLiveOn', pageHeader: 'Log-In', page: 'Login' });
+// SIGN UP
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/campgrounds',
+  failureRedirect: '/login'
+}), (req, res) => {
+
 });
 
-/* GET Registration page. */
-router.get('/register', function(req, res, next) {
-  res.render('register',{title: 'PetsLiveOn', pageHeader: 'Sign Up', page: 'Registration' });
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success', 'Logged you out');
+  res.redirect('/');
 });
+
+// function isLoggedIn(req, res, next){
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
+//   res.redirect('/login');
+// }
 
 module.exports = router;
