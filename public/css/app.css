@@ -126,6 +126,10 @@ p {
   padding: 0;
 }
 
+.mid {
+  margin: 0 auto;
+}
+
 .thumbnail .caption-full , .small .caption-full{
   padding: 9px;
 }

@@ -4,6 +4,7 @@ const express     = require('express'),
       flash       = require('connect-flash'),
       geocoder    = require('geocoder'),
       Pet         = require('../models/pet'),
+      User         = require('../models/user'),
       Mid         = require('../middleware/index');
 
 
@@ -42,7 +43,7 @@ router.get("/", function(req, res){
   }
 });
 
-// ADDING A NEW CAMPGROUND
+// ADDING A NEW PET
 router.post('/', Mid.isLoggedIn, (req, res) => {
   console.log(req.body.images);
   var encodedAddress = encodeURIComponent(req.body.location);
@@ -65,6 +66,7 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
       lng: lng
     }
     console.log(newPet);
+
     Pet.create(newPet, (err, newPetAdded) => {
       if (err) {
         console.log(err);

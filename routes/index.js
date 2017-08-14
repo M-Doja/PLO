@@ -103,7 +103,25 @@ router.get('/user/:id', (req, res) => {
       res.render('/pets');
     }else {
       console.log(user);
-      res.render('user', {pageHeader: user.username, user: user});
+      /*
+         send back data about the pets they have memorials for
+      */
+      Pets.find({}, function(err, allPets){
+         if(err){
+             console.log(err);
+         }
+      
+         else {
+            if(req.xhr) {
+              res.json(allPets);
+              console.log(allPets);
+            } else {
+              res.render('user', {pageHeader: user.username,pets: allPets});
+            }
+         }
+
+      });
+      // res.render('user', {pageHeader: user.username, user: user});
     }
   })
 
