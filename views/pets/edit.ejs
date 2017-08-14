@@ -1,10 +1,10 @@
 <% include ../partials/header %>
-<% include ../partials/navbar %>
+<% include ../partials/navbar2 %>
 
 
   <div class="container">
     <div class="row">
-      <h1 class="text-center">Edit <%= campground.name %> </h1>
+      <h1 class="text-center">Edit <%= pet.name %> </h1>
 
       <div class="form">
         <form action="/pets/<%= pet._id %>/?_method=PUT" method="POST">
@@ -15,13 +15,19 @@
             <input class="form-control"type="text" name="images" value="<%= pet.images %>">
           </div>
           <div class="form-group">
+            <input class="form-control"type="text" name="breed" value="<%= pet.breed %>">
+          </div>
+          <div class="form-group">
+            <input class="form-control"type="text" name="type" value="<%= pet.type %>">
+          </div>
+          <div class="form-group">
             <input class="form-control"type="text" name="age" value="<%= pet.age %>" >
           </div>
           <div class="form-group">
             <input class="form-control"type="text" name="location" id="location" value="<%= pet.location %>">
           </div>
           <div class="form-group">
-            <textarea class="form-control"type="text" name="description" value="<%= pet.description %>"><%= campground.description %></textarea>
+            <textarea class="form-control"type="text" name="description" value="<%= pet.description %>"><%= pet.description %></textarea>
           </div>
           <div class="form-group">
             <input class="btn btn-prim btn-lg btn-block" type="submit">

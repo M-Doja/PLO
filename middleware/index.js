@@ -1,19 +1,19 @@
 const middleWareObj = {},
-      Campground    = require('../models/pet'),
+      Pet    = require('../models/pet'),
       Comments      = require('../models/comment');
 
-middleWareObj.checkCampgroundOwnership = function(req, res, next){
+middleWareObj.checkPetOwnership = function(req, res, next){
   if (req.isAuthenticated()) {
-    Campground.findById(req.params.id, (err, foundCampground) => {
+    Pet.findById(req.params.id, (err, foundPet) => {
       if (err) {
         req.flash('error', 'Unable to find that specific campground')
-        res.redirect('/campgrounds');
+        res.redirect('/pets');
       }else {
-        if (foundCampground.author.id.equals(req.user._id) || req.user.isAdmin) {
+        if (foundPet.owner.id.equals(req.user._id) || req.user.isAdmin) {
           next();
         }else {
           req.flash('error', 'You don\'t have permission to do that')
-          res.render('campgrounds/edit', {campground: foundCampground});
+          res.render('pets/edit', {pet: foundPet});
         }
       }
     });
@@ -27,13 +27,13 @@ middleWareObj.checkCommentOwnership = function(req, res, next){
   if (req.isAuthenticated()) {
     Comments.findById(req.params.comment_id, (err, foundComment) => {
       if (err) {
-        res.redirect('/campgrounds');
+        res.redirect('/pets');
       }else {
         if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin) {
           next();
         }else {
           req.flash('error', 'You don\'t have permission to do that');
-          res.render('campgrounds/edit', {campground: foundComment});
+          res.render('pets/edit', {pet: foundComment});
         }
       }
     });

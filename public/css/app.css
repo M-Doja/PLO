@@ -9,6 +9,10 @@ html {
   box-sizing: inherit;
 }
 
+ul li, ol li {
+  list-style: none;
+}
+
 body {
   position: relative;
   margin: 0;
@@ -115,7 +119,7 @@ p {
   margin-bottom: 2em;
 }
 .ring img {
-  border-radius: 1em 1em 0 0;
+  border-radius: .6em .6em 0 0;
 }
 
 .thumbnail, .small {

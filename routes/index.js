@@ -95,6 +95,19 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+router.get('/user/:id', (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    if (err) {
+      console.log(err);
+      req.flash('error', err);
+      res.render('/pets');
+    }else {
+      console.log(user);
+      res.render('user', {pageHeader: user.username, user: user});
+    }
+  })
+
+});
 // function isLoggedIn(req, res, next){
 //   if (req.isAuthenticated()) {
 //     return next();

@@ -7,10 +7,11 @@
       <p class="lead"><strong>In Remeberance of <%= pet.name.toUpperCase() %></strong></p>
       <p><a href="/memorials" class="btn-a"><strong>< Back to Memorials</strong></a></p><br>
       <div class="list-group">
-        <li class="list-group-item active">Location</li>
-        <li class="list-group-item"><%= pet.location %></li>
-        <li class="list-group-item">latitude: <%= pet.lat %></li>
-        <li class="list-group-item">longitude: <%= pet.lng %></li>
+        <li class="list-group-item active">About <%= pet.name %></li>
+        <li class="list-group-item">Hometown: <%= pet.location %></li>
+        <li class="list-group-item">Age: <%= pet.age %></li>
+        <li class="list-group-item">Type: <%= pet.type %></li>
+        <li class="list-group-item">Breed: <%= pet.breed %></li>
       </div>
       <div id="map"></div>
     </div>
@@ -19,18 +20,18 @@
       <div class="thumbnail">
         <img src="<%= pet.images %>" alt="">
         <div class="caption-full">
-          <h4 class="pull-right">Cost Per Night: $<%= pet.price %></h4>
-          <h4><a href="#" class="btn-text"><%= pet.name.toUpperCase() %></a></h4>
+          <h4 class="pull-right">Cost Per Night: $<%= pet.age %></h4>
+          <h4><a href="#" class="btn-text">In Loving Memory of <%= pet.name.toUpperCase() %></a></h4>
           <p><%= pet.description %></p>
           <p>
-            <em>Submitted by: <%= pet.owner.username %>, <%= moment(pet.createdAt).fromNow() %></em><br>
+            <em>Submitted by: <a href="/user/<%= pet.owner.id %>"> <%= pet.owner.username %></a>, <%= moment(pet.createdAt).fromNow() %></em><br>
           </p>
            <% if(currentUser && pet.owner.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
              <div class="">
                <button type="button" id="setBtn"data-toggle="collapse" data-target="#mySetting"class="settingBtn"><span class="glyphicon glyphicon-cog"></span> Settings</button>
                <div  class="collapse" id="mySetting">
-                 <a class="btn btn-prim" href="/campgrounds/<%= pet._id %>/edit">Edit</a>
-                 <form class="deleteform" action="/campgrounds/<%= pet._id %>?_method=DELETE" method="post">
+                 <a class="btn btn-prim" href="/pets/<%= pet._id %>/edit">Edit</a>
+                 <form class="deleteform" action="/pets/<%= pet._id %>?_method=DELETE" method="post">
                    <button class="btn btn-danger" >Delete</button>
                  </form>
                </div>
@@ -40,7 +41,7 @@
       </div>
       <div class="well">
         <div class="text-right">
-          <a class="btn btn-prim"href="/campgrounds/<%= pet._id %>/comments/new">Leave A Review</a>
+          <a class="btn btn-prim"href="/pets/<%= pet._id %>/comments/new">Leave A Review</a>
           <hr>
         </div>
         <% pet.comments.forEach(function(comment){ %>
@@ -52,8 +53,8 @@
                <%= comment.text %>
               </p>
               <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-              <a href="/campgrounds/<%= pet._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
-              <form class="deleteform" action="/campgrounds/<%= pet._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <a href="/pets/<%= pet._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
+              <form class="deleteform" action="/pets/<%= pet._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-xs btn-danger" >Delete</button>
               </form>
               <% }%>

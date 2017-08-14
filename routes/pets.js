@@ -8,26 +8,26 @@ const express     = require('express'),
 
 
 
-// DISPLAY ALL CAMPGROUNDS
+// DISPLAY ALL PETS
 // Define escapeRegex function for search feature
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-//INDEX - show all campgrounds
+//INDEX - show all pets
 router.get("/", function(req, res){
   if(req.query.search) {
       const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-      // Get all campgrounds from DB
+      // Get all pets from DB that fit search critia
       Pet.find({name: regex}, function(err, allPets){
          if(err){
             console.log(err);
          } else {
-            res.render("pets/index",{pets: allPets, page: 'campgrounds'});
+            res.render("pets/index",{pets: allPets, page: 'pets'});
          }
       });
   } else {
-      // Get all campgrounds from DB
+      // Get all pets from DB
       Pet.find({}, function(err, allPets){
          if(err){
              console.log(err);
@@ -35,10 +35,7 @@ router.get("/", function(req, res){
             if(req.xhr) {
               res.json(allPets);
             } else {
-              res.render("pets/index",{
-                // pets: allPets,
-                page: 'campgrounds'
-              });
+              res.render("pets/index",{page: 'pets'});
             }
          }
       });
@@ -79,11 +76,6 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
   });
 });
 
-// router.get('/memorials', (req, res) => {
-//   res.render('memorial', {pageHeader: "PetsLiveOn Memorials",pets: Pets});
-// });
-
-
 // RENDER CAMPGROUND ADD FORM
 router.get('/new', Mid.isLoggedIn, (req, res) => {
   res.render('pets/new');
@@ -101,12 +93,12 @@ router.get('/:id', (req, res) => {
 });
 
 // EDIT CAMPGROUND
-router.get('/:id/edit', Mid.checkCampgroundOwnership, (req, res) => {
-  Pet.findById(req.params.id, (err, campground) => {
+router.get('/:id/edit', Mid.checkPetOwnership, (req, res) => {
+  Pet.findById(req.params.id, (err, pet) => {
     if (err) {
       console.log(err);
     }else {
-      res.render('pets/edit', {campground: campground});
+      res.render('pets/edit', {pet: pet});
     }
   });
 });
@@ -121,34 +113,37 @@ router.put('/:id', (req, res) => {
       name: req.body.name,
       images: req.body.images,
       description: req.body.description,
-      price: req.body.price,
+      breed: req.body.breed,
+      type: req.body.type,
+      age: req.body.age,
       location: location,
       lat: lat,
       lng: lng
     };
-    Pet.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, campground){
+    Pet.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, pet){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
         } else {
             req.flash("success","Successfully Updated!");
-            res.redirect("/pets/" + campground._id);
+            res.redirect("/pets/" + pet._id);
         }
     });
   });
 });
 
 // DELETE CAMPGROUND
-router.delete('/:id', Mid.checkCampgroundOwnership, (req, res) => {
-  Pet.findByIdAndRemove(req.params.id, (err, campground) => {
+router.delete('/:id', Mid.checkPetOwnership, (req, res) => {
+  Pet.findByIdAndRemove(req.params.id, (err, pet) => {
     if (err) {
       console.log(err);
-      res.redirec('/pets');
+      res.redirec('/memorials');
     }else {
-      res.redirect('/pets')
+      res.redirect('/memorials')
     }
   });
 });
+
 
 
 
