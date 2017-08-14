@@ -26,7 +26,7 @@ function getDate(){
 }
 // DATABASE CONNECTION
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/PLO-DB', {
+mongoose.connect(db_URI , {
   useMongoClient: true
 }, (err, db) => {
   if (err) {
