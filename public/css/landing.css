@@ -61,6 +61,10 @@ body {
   color: #67966d;
 }
 
+.viewBtn {
+  font-family: fantasy;
+}
+
 .navbar {
   background-color: #302520;
   border-color: #302520;

@@ -9,29 +9,42 @@
       <div class="form">
         <form action="/pets" method="post">
           <div class="form-group">
-            <input class="form-control"type="text" name="name" placeholder="Pet name">
+            <label for="name">Pet Name</label>
+            <input id="name" class="form-control"type="text" name="name" placeholder="Pet name">
           </div>
           <div class="form-group">
-            <input class="form-control"type="text" name="images" placeholder="Pet image url">
+            <label for="image">Pet Photo URL</label>
+            <input id="image" class="form-control"type="text" name="images" placeholder="Pet image url">
           </div>
           <div class="form-group">
-            <input class="form-control"type="number" name="age" placeholder="Pet age" >
+            <label for="age">Pet Age</label>
+            <input id="age" class="form-control"type="number" name="age" placeholder="Pet age" >
           </div>
           <div class="form-group">
-            <input class="form-control"type="text" name="breed" placeholder="Pet breed" >
+            <label for="breed">Pet Breed</label>
+            <input id="breed" class="form-control"type="text" name="breed" placeholder="Pet breed" >
           </div>
           <div class="form-group">
-            <input class="form-control"type="text" name="type" placeholder="Pet type" >
+            <label for="type">Animal Type</label>
+            <input id="type" class="form-control"type="text" name="type" placeholder="Pet type" >
           </div>
           <div class="form-group">
-            <input class="form-control"type="text" name="location" id="location" placeholder="Pet location">
+            <label for="location">Pet Hometown</label>
+            <input id="location" class="form-control"type="text" name="location" id="location" placeholder="Pet location">
           </div>
           <div class="form-group">
-            <textarea class="form-control"type="text" name="description" placeholder="Pet description"></textarea>
+            <label for="description">Pet Bio</label>
+            <textarea id="description"class="form-control"type="text" name="description" placeholder="Pet description"></textarea>
           </div>
           <div class="form-group">
-            <label for="private">Make Private</label>
-            <input  class="form-control"type="checkbox" name="isPrivate" id="private" placeholder="Pet location">
+            <div id="side">
+              <label for="private">Make Public: </label>
+              <input checked class="form-control"type="radio" value="false" name="isPrivate" id="private">
+            </div>
+            <div id="side2">
+              <label for="private2">Make Private: </label>
+              <input  class="form-control"type="radio" value="true" name="isPrivate" id="private2">
+            </div>
           </div>
           <div class="form-group">
             <input class="btn btn-prim btn-lg btn-block" type="submit">

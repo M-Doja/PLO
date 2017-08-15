@@ -9,11 +9,11 @@ const express     = require('express'),
 
 // COMMENT FORM ROUTE
 router.get('/new', Mid.isLoggedIn, (req, res) => {
-  Pet.findById(req.params.id, (err, site) => {
+  Pet.findById(req.params.id, (err, pet) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('comments/new', {campground: site});
+      res.render('comments/new', {pet: pet});
     }
   });
 });
@@ -50,7 +50,7 @@ router.get('/:comment_id/edit', Mid.checkCommentOwnership, (req, res) => {
       console.log(err);
       res.redirect('back');
     }else {
-      res.render('comments/edit', {campground_id: req.params.id, comment: foundComment });
+      res.render('comments/edit', {pet_id: req.params.id, comment: foundComment });
     }
   });
 });

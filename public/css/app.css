@@ -2,7 +2,9 @@ html {
   height: 100%;
   box-sizing: border-box;
 }
-
+.navbar-default .navbar-nav>li>a {
+  line-hieght:30px;
+}
 *,
 *:before,
 *:after {
@@ -19,6 +21,13 @@ body {
   padding-bottom: 6rem;
   min-height: 100%;
   /*font-family: "Helvetica Neue", Arial, sans-serif;*/
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+.cursive {
+  /*font-family: cursive;*/
 }
 .enterForm{
   max-width: 750px;
@@ -41,8 +50,9 @@ body {
 }
 
 #link {
-  width: 320px;
-  margin-top:
+  width: 280px;
+  margin:0 auto 10px auto;
+  padding:
 }
 .white{
   background-color: #fff;
@@ -138,6 +148,9 @@ p {
 .thumbnail, .small {
   padding: 0;
 }
+.thumbnail {
+  border-radius: 8px 8px 0 0;
+}
 
 .mid {
   margin: 0 auto;
@@ -228,6 +241,21 @@ footer {
 }
 
 /*SHOW PAGE*/
+
+#petPic , .petImg{
+  border: 8px 8px 0 0;
+  border:8px solid #000;border-radius:8px;
+
+}
+
+.redFlower {
+  /*max-width: 845.5px;*/
+  background-color: green;
+  max-height: 600px;
+  max-width: 560px;
+  padding: 15px;
+}
+
 /*==============================*/
 
 /*profile*/
@@ -238,17 +266,21 @@ footer {
 #avi {
   float: left;
   border: 1px solid #000;
-  margin: 15px
+  border-radius: 10em;
+  margin: 0 15px 15px
 }
 
 
 #list {
   border-left: 1px solid #000;
   padding-left:8px;
-
+  text-align: center;
+}
+.listItem{
+  text-align: center;
 }
 #bio1 {
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 1rem 3rem;
 }
 #petList {

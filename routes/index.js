@@ -6,7 +6,6 @@ const express     = require('express'),
       config      = require('../config/config'),
       Pets        = require('../models/pet'),
       User        = require('../models/user');
-// console.log(Pets);
 
 router.get('/', (req, res) => {
   res.render('landing', {title: "Welcome!"});
@@ -95,6 +94,8 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+
+// GET User Profile
 router.get('/user/:id', (req, res) => {
   User.findById(req.params.id, (err, user) => {
     if (err) {
@@ -102,15 +103,10 @@ router.get('/user/:id', (req, res) => {
       req.flash('error', err);
       res.render('/pets');
     }else {
-      console.log(user);
-      /*
-         send back data about the pets they have memorials for
-      */
       Pets.find({}, function(err, allPets){
          if(err){
-             console.log(err);
+            console.log(err);
          }
-
          else {
             if(req.xhr) {
               res.json(allPets);
@@ -121,13 +117,8 @@ router.get('/user/:id', (req, res) => {
          }
       });
     }
-  })
+  });
 });
-// function isLoggedIn(req, res, next){
-//   if (req.isAuthenticated()) {
-//     return next();
-//   }
-//   res.redirect('/login');
-// }
+
 
 module.exports = router;

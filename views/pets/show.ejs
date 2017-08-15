@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <p class="lead"><strong>In Remeberance of <%= pet.name.toUpperCase() %></strong></p>
+      <p class="lead fantasy">In Rememberance of <%= pet.name.toUpperCase() %></p>
       <p><a href="/memorials" class="btn-a"><strong>< Back to Memorials</strong></a></p><br>
       <div class="list-group">
         <li class="list-group-item active">About <%= pet.name %></li>
@@ -15,17 +15,21 @@
       </div>
       <!-- <div id="map"></div> -->
     </div>
-
     <div class="col-md-9">
       <div class="thumbnail">
-        <img src="<%= pet.images %>" alt="">
+        <% if (!pet.images){ %>
+          <img class="petImg redFlower"src="/imgs/remembrance-2.jpg" alt="">
+          <% } else {%>
+            <img id="petPic"src="<%= pet.images %>" alt="">
+        <%}%>
+
         <div class="caption-full">
-          <div class="pull-right rightside">
-            <h4>Share: <a href="localhost:5000/pets/<%= pet.id %>" target="_blank"><%= pet.name %>'s Memorial Page</a></h4>
+          <div class="pull-right rightside ">
+            <h4 class="fantasy">Share: <a href="https://petsliveon.herokuapp.com/pets/<%= pet.id %>" target="_blank"><%= pet.name %>'s Memorial Page</a></h4>
             <br>
-            Copy:<input id="link" type="text" name="" value="localhost:5000/pets/<%= pet.id %>">
+            Copy:<input id="link" type="text" name="" value="https://petsliveon.herokuapp.com/<%= pet.id %>">
           </div>
-          <h4><a href="#" class="btn-text">In Loving Memory of <%= pet.name.toUpperCase() %></a></h4>
+          <h4><a href="#" class="btn-text fantasy">In Loving Memory of <%= pet.name.toUpperCase() %></a></h4>
 
           <p><%= pet.description %></p>
           <p>
@@ -50,7 +54,7 @@
       </div>
       <div class="well">
         <div class="text-right">
-          <a class="btn btn-prim"href="/pets/<%= pet._id %>/comments/new">Leave A Review</a>
+          <a class="btn btn-prim fantasy"href="/pets/<%= pet._id %>/comments/new">Leave A Review</a>
           <hr>
         </div>
         <% pet.comments.forEach(function(comment){ %>
