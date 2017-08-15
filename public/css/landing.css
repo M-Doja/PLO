@@ -86,7 +86,7 @@ body {
 
 #mainwrap{
   margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: .25em 1em 1.5em;
   border-radius: 1em;
   max-width: 443px;
