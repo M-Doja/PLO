@@ -9,9 +9,6 @@ const express               = require('express'),
       passportLocalMongoose = require('passport-local-mongoose'),
       medthodOverride       = require('method-override'),
       flash                 = require('connect-flash'),
-      asyn                  = require('async'),
-      nodemailer            = require('nodemailer'),
-      crypto                = require('crypto'),
       MongoClient           = require('mongodb').MongoClient;
 
 const Pet                   = require('./models/pet'),
