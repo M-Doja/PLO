@@ -110,7 +110,7 @@ router.get('/user/:id', (req, res) => {
          if(err){
              console.log(err);
          }
-      
+
          else {
             if(req.xhr) {
               res.json(allPets);
@@ -119,12 +119,9 @@ router.get('/user/:id', (req, res) => {
               res.render('user', {pageHeader: user.username,pets: allPets});
             }
          }
-
       });
-      // res.render('user', {pageHeader: user.username, user: user});
     }
   })
-
 });
 // function isLoggedIn(req, res, next){
 //   if (req.isAuthenticated()) {

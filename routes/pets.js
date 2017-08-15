@@ -4,9 +4,8 @@ const express     = require('express'),
       flash       = require('connect-flash'),
       geocoder    = require('geocoder'),
       Pet         = require('../models/pet'),
-      User         = require('../models/user'),
+      User        = require('../models/user'),
       Mid         = require('../middleware/index');
-
 
 
 // DISPLAY ALL PETS
@@ -60,6 +59,7 @@ router.post('/', Mid.isLoggedIn, (req, res) => {
       breed: req.body.breed,
       type: req.body.type,
       owner: owner,
+      isPrivate: req.body.isPrivate,
       location: location,
       locationStr: encodedAddress,
       lat: lat,
@@ -118,6 +118,7 @@ router.put('/:id', (req, res) => {
       breed: req.body.breed,
       type: req.body.type,
       age: req.body.age,
+      isPrivate: req.body.isPrivate,
       location: location,
       lat: lat,
       lng: lng

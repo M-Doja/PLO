@@ -30,6 +30,17 @@
             <textarea class="form-control"type="text" name="description" value="<%= pet.description %>"><%= pet.description %></textarea>
           </div>
           <div class="form-group">
+
+            <div id="side">
+              <label for="private">Make Public: </label>
+              <input checked class="form-control"type="radio" value="false" name="isPrivate" id="private">
+            </div>
+            <div id="side2">
+              <label for="private2">Make Private: </label>
+              <input  class="form-control"type="radio" value="true" name="isPrivate" id="private2">
+            </div>
+          </div>
+          <div class="form-group">
             <input class="btn btn-prim btn-lg btn-block" type="submit">
           </div>
         </form>

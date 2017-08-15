@@ -13,14 +13,20 @@
         <li class="list-group-item">Type: <%= pet.type %></li>
         <li class="list-group-item">Breed: <%= pet.breed %></li>
       </div>
-      <div id="map"></div>
+      <!-- <div id="map"></div> -->
     </div>
 
     <div class="col-md-9">
       <div class="thumbnail">
         <img src="<%= pet.images %>" alt="">
         <div class="caption-full">
+          <div class="pull-right rightside">
+            <h4>Share: <a href="localhost:5000/pets/<%= pet.id %>" target="_blank"><%= pet.name %>'s Memorial Page</a></h4>
+            <br>
+            Copy:<input id="link" type="text" name="" value="localhost:5000/pets/<%= pet.id %>">
+          </div>
           <h4><a href="#" class="btn-text">In Loving Memory of <%= pet.name.toUpperCase() %></a></h4>
+
           <p><%= pet.description %></p>
           <p>
             <em>Submitted by: <a href="/user/<%= pet.owner.id %>"> <%= pet.owner.username %></a>, <%= moment(pet.createdAt).fromNow() %></em><br>
@@ -33,6 +39,10 @@
                  <form class="deleteform" action="/pets/<%= pet._id %>?_method=DELETE" method="post">
                    <button class="btn btn-danger" >Delete</button>
                  </form>
+                 <div class="">
+                   <h3>Add Photos To <%= pet.name %>'s Page</h3>
+
+                 </div>
                </div>
              </div>
           <% }%>

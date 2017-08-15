@@ -31,6 +31,19 @@ body {
   margin-bottom: -15px;
 }
 
+#side,#side2 {
+  display: inline-block;
+  width: 25%;
+}
+
+.rightside {
+  text-align: center;
+}
+
+#link {
+  width: 320px;
+  margin-top:
+}
 .white{
   background-color: #fff;
   width: 99.9%;
@@ -217,6 +230,43 @@ footer {
 /*SHOW PAGE*/
 /*==============================*/
 
- {
+/*profile*/
+.heading{
+  margin-bottom: 1.2em;
+}
 
+#avi {
+  float: left;
+  border: 1px solid #000;
+  margin: 15px
+}
+
+
+#list {
+  border-left: 1px solid #000;
+  padding-left:8px;
+
+}
+#bio1 {
+  margin: 0 auto;
+  padding: 1rem 3rem;
+}
+#petList {
+  margin-top: 0;
+}
+@media (max-width: 992px){
+  #avi {
+      float: none;
+      margin: 0 auto;
+      text-align: center;
+  }
+  #list {
+    border-left:none;
+    padding-left:-8px;
+    text-align: center;
+  }
+  #bio1 {
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+  }
 }

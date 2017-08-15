@@ -4,6 +4,17 @@ var mongoose = require('mongoose');
 var petSchema = new mongoose.Schema({
   name: String,
   images:String,
+  album : [{
+    path: {
+    type: String,
+    required: true,
+    trim: true
+    },
+    originalname: {
+    type: String,
+    required: true
+    }
+  }],
   description: String,
   type: String,
   age: Number,
@@ -28,6 +39,10 @@ var petSchema = new mongoose.Schema({
       ref: 'User'
     },
     username: String
+  },
+  isPrivate: {
+    type: Boolean,
+    default: false
   }
 });
 
