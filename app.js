@@ -26,7 +26,7 @@ function getDate(){
 }
 // DATABASE CONNECTION
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/PLO-DB' , {
+mongoose.connect(db_URI , {
 // mongoose.connect('mongodb://localhost:27017/PLO-DB' , {
   useMongoClient: true
 }, (err, db) => {
@@ -83,11 +83,9 @@ app.use((req, res, next) => {
 var mainRoutes = require('./routes/index')
 var petRoutes = require('./routes/pets');
 var commentRoutes = require('./routes/comments');
-var imgRoutes = require('./routes/imgfile');
 
 
 app.use('/', mainRoutes);
-app.use('/album', mainRoutes);
 app.use('/pets', petRoutes);
 app.use('/pets/:id/comments', commentRoutes);
 
