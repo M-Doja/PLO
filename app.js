@@ -14,14 +14,14 @@ const express               = require('express'),
 const Pet                   = require('./models/pet'),
       Comments              = require('./models/comment'),
       User                  = require('./models/user'),
-      MONGO_DB              = require('./config/config'),
       seedDB                = require('./seed'),
       app                   = express();
 
-var  db_URI                 = MONGO_DB.DB_URI || 'mongodb://localhost:27017/PLO-DB';
+var  db_URI                 = process.env.DATABASEURL || 'mongodb://localhost:27017/PLO-DB';
 // seedDB();
 
 
+console.log(process.env.DATABASEURL);
 
 function getDate(){
   return new Date().getFullYear();
