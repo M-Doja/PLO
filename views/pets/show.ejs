@@ -33,7 +33,13 @@
 
           <p><%= pet.description %></p>
           <p>
-            <em>Submitted by: <a href="/user/<%= pet.owner.id %>"> <%= pet.owner.username %></a>, <%= moment(pet.createdAt).fromNow() %></em><br>
+            <em>Submitted by:
+              <% if(currentUser) {  %>
+              <a href="/user/<%= pet.owner.id %>"> <%= pet.owner.username %></a>,
+              <%}else{  %>
+                <%= pet.owner.username %>
+              <% } %>
+              <%= moment(pet.createdAt).fromNow() %></em><br>
           </p>
            <% if(currentUser && pet.owner.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
              <div class="">
