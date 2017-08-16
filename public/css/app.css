@@ -166,6 +166,16 @@ p {
 /*==================================
     REGISTRATION & LOGIN FORMS
 */
+input[type=checkbox], input[type=radio] {
+  width: 20px;
+  margin: 0 auto;
+}
+
+.reqInp{
+  color: #f21818;
+  /*font-size: 20px;*/
+}
+
 .titleForm {
   color: white;
 }

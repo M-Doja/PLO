@@ -2,8 +2,12 @@
 <% include ./partials/navbar2 %>
 <div class="container">
   <h1 class="text-center heading fantasy"><%= pageHeader.toUpperCase() %> Profile Page</h1>
-  <a type="" class="" data-toggle="modal" data-target="#myModal"> Profile Settings</a><br><br>
+    <% if(currentUser._id.equals(user.id)){ %>
+      <a type="" class="" data-toggle="modal" data-target="#myModal"> Profile Settings</a>
+    <% } %>
+  <br><br>
   <div class="row">
+
 
     <div class="col-md-8 col-md-12 col-xs-12 text-center">
 
@@ -52,7 +56,51 @@
         <h4 class="modal-title">Update Profile Settings</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <form class="enterForm" action="/register" method="POST">
+          <h2 class="titleForm">Register</h2>
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input required class="form-control" id="username"type="text" name="username" value="<%= user.username %>">
+          </div>
+          <div class="form-group">
+            <label for="firstname">First Name <em><sub class="reqInp"> ( Vendors Only )</sub></em></label>
+            <input class="form-control" id="firstname"type="text" name="fName" value="<%= user.fName %>">
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name <em><sub class="reqInp"> ( Vendors Only )</sub></em></label>
+            <input class="form-control" id="lastname"type="text" name="lName" value="<%= user.lName %>">
+          </div>
+          <div class="form-group">
+            <label for="avatar">Avatar URL</label>
+            <input class="form-control" id="avatar"type="text" name="avatar" value="<%= user.avatar %>">
+          </div>
+          <div class="form-group">
+            <label for="email">Email <em><sub class="reqInp"> ( Vendors Only )</sub></em></label>
+            <input class="form-control" id="email"type="text" name="email" value="<%= user.email %>">
+          </div>
+          <div class="form-group">
+            <label for="bio">Bio</label>
+              <textarea class="form-control" id="bio"type="text" name="bio"><%= user.bio %></textarea>
+          </div>
+          <div class="form-group">
+
+            <div id="side">
+              <label for="private">New User </label>
+              <input checked class="form-control"type="radio" value="false" name="isVendor" id="private">
+            </div>
+            <div id="side2">
+              <label for="private2">New Vendor </label>
+              <input  class="form-control"type="radio" value="true" name="isVendor" id="private2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adminCode">Admin Code</label>
+            <input  class="form-control" id="adminCode"type="text" name="adminCode" placeholder="Admin Code">
+          </div>
+          <div class="form-group">
+            <input class="loginBtn submit"type="submit">
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

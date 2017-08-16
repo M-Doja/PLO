@@ -109,16 +109,16 @@ router.get('/user/:id', (req, res) => {
       req.flash('error', err);
       res.render('/pets');
     }else {
-      Pets.find({}, function(err, allPets){
+      Pets.find({"owner.id": req.params.id}, function(err, allPets){
          if(err){
-            console.log(err);
+            console.log(err); 
          }
          else {
             if(req.xhr) {
               res.json(allPets);
               console.log(allPets);
             } else {
-              res.render('user', {pageHeader: user.username,pets: allPets});
+              res.render('user', {pageHeader: user.username,pets: allPets, user:user});
             }
          }
       });
