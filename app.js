@@ -8,11 +8,12 @@ const express               = require('express'),
       LocalStrategy         = require('passport-local'),
       passportLocalMongoose = require('passport-local-mongoose'),
       medthodOverride       = require('method-override'),
-      flash                 = require('connect-flash'),
-      MongoClient           = require('mongodb').MongoClient;
+      flash                 = require('connect-flash');
 
 const Pet                   = require('./models/pet'),
       Comments              = require('./models/comment'),
+      Forum                 = require('./models/forum'),
+      Vendor                = require('./models/vendor'),
       User                  = require('./models/user'),
       seedDB                = require('./seed'),
       app                   = express();
@@ -29,7 +30,6 @@ function getDate(){
 // DATABASE CONNECTION
 mongoose.Promise = global.Promise;
 mongoose.connect(db_URI , {
-// mongoose.connect('mongodb://localhost:27017/PLO-DB' , {
   useMongoClient: true
 }, (err, db) => {
   if (err) {
@@ -84,12 +84,18 @@ app.use((req, res, next) => {
 
 var mainRoutes = require('./routes/index')
 var petRoutes = require('./routes/pets');
+var forumRoutes = require('./routes/forum');
+var forumCommentRoutes = require('./routes/forumComments');
 var commentRoutes = require('./routes/comments');
+var vendorRoutes = require('./routes/vendor');
 
 
 app.use('/', mainRoutes);
 app.use('/pets', petRoutes);
+app.use('/forum', forumRoutes);
+app.use('/forum/:id/comments', forumCommentRoutes);
 app.use('/pets/:id/comments', commentRoutes);
+app.use('/vendors', vendorRoutes);
 
 
 app.listen(port, () => {

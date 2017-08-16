@@ -16,6 +16,13 @@ router.get('/about', (req, res) => {
 router.get('/community', (req, res) => {
   res.render('community', {pageHeader: "Welcome to the PetsLiveOn Community!"});
 });
+router.get('/forum', (req, res) => {
+  res.render('forum', {pageHeader: "Get Advice on the PetsLiveOn Forum!"});
+});
+router.get('/vendors', (req, res) => {
+  res.render('vendors', {pageHeader: "PetsLiveOn Vendors"});
+});
+
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -66,8 +73,7 @@ router.post('/register', (req, res) => {
   User.register(newUser ,req.body.password, (err, user) => {
     if (err) {
       console.log(err);
-      req.flash('error', err.message);
-      res.render('register')
+      return res.render('register', {error: err.message})
     }
     passport.authenticate('local')(req, res, function(){
       req.flash('success', 'Successful Registraion! Welcome to YelpCamp '+ user.username );
