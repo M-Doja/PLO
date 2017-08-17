@@ -312,3 +312,53 @@ footer {
     margin-bottom: 10px;
   }
 }
+
+/*
+        COMMUNITY PAGE
+=====================================*/
+.underline {
+  border-bottom: 1px solid #000;
+}
+.commLink  {
+  margin: 30px 50px;
+}
+
+/* VENDORS PAGE */
+#svc-sect ul li{
+  border: 1px solid #000;
+  padding: 2% 10px;
+  margin: 10px auto;
+  max-width: 332px;
+}
+#svc-sect {
+
+}
+#svc-sect {
+
+}
+#svc-sect {
+
+}
+#vendorSearchForm {
+  margin: 20px auto;
+}
+table {
+  margin: 50px auto;
+  border: 5px solid #000;
+}
+thead, td {
+  border-bottom: 1px solid #000;
+}
+
+tbody {
+  height:515px;
+		/* background-color:#CCC; */
+        overflow-y:auto;
+		float:left;
+		position:relative;
+		margin-left:-5px;
+}
+
+ table td {
+   padding: 10px 15px;
+ }

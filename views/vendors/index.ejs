@@ -2,10 +2,135 @@
 <% include ../partials/navbar %>
 
 <div class="">
-  <h1 class="fantasy"><%= pageHeader %></h1>
+  <h1 class="fantasy text-center"><%= pageHeader %></h1>
 
+  <div class="container">
+    <h4>Do you have a business related to animals or pet care?</h4>
+    <p>
+      Become a vendor and offer your services. All we ask in return is you give our users, your new customers, at the minimum a discount of 10% or more off your products or services.
+    </p><br>
+    <p>
+      To <strong><em>sign up</em></strong>, just select a category of services that you provide <span class="underline">from down below</span> and within mintues you will be up and running on our vendors list.
+    </p><br><br>
+  </div>
 
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   <div class="container">
+     <div class="row">
+       <div class="col-md-6">
+         <section id="svc-sect">
+
+           <ul>
+             <h4>Pick A Service Category:</h4>
+             <li>
+               <a href="#">
+                 <span>Pet Care</span>  <br>
+                 <img src="/imgs/vet-svc3.png" width="60" alt="">
+               </a>
+               <p class="pull-right">
+                  Physical Therapy & Vet Services
+               </p>
+             </li>
+             <li>
+               <a href="#">
+                 <span>Pet Activities</span> <br>
+                 <img src="/imgs/pets/pet-walk.jpg" width="55" alt="">
+               </a>
+               <p class="pull-right">
+                 Pet Walking, Pet Exercise Services
+               </p>
+             </li>
+             <li>
+               <a href="#">
+                 <span>Pet Sitting</span> <br>
+                 <img src="/imgs/pets/pet-sit.png" width="75" alt="">
+               </a>
+               <p class="pull-right">
+                Pet Watching & Boarding
+               </p>
+             </li>
+             <li>
+               <a href="#">
+                 <span>Pet Grooming</span> <br>
+                 <img src="/imgs/pets/pet-groom.png" width="65" alt="">
+               </a>
+               <p class="pull-right">
+                 Pet Bathing & Grooming Services
+               </p>
+             </li>
+             <li>
+               <a href="#">
+                 <span>Pet Food Services</span> <br>
+                 <img src="/imgs/pets/pet-feed.jpg" width="80" alt="">
+               </a>
+               <p class="pull-right">
+                 Gourmet & Organic Pet Foods
+               </p>
+             </li>
+             <li>
+               <a href="#">
+                 <span>Other Pet Services</span> <br>
+                 <img src="/imgs/pets/pet-other.png" width="70" alt="">
+               </a>
+               <p class="pull-right">
+                 Miscellaneous Animal Services
+               </p>
+             </li>
+           </ul>
+         </section>
+       </div>
+       <div class="col-md-6">
+         <form id="vendorSearchForm">
+           <h3>Search for a service</h3>
+           <div class="form-group">
+             <input type="text" class="form-control" name="vendorSearch" placeholder="Search by service or vendor name">
+             <input type="submit" name="" class="btn btn-block"value="Search">
+           </div>
+         </form>
+         <div id="table-wrap">
+           <table>
+             <thead>
+               <th class="text-center"><h4>Vendor Services</h4></th>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>
+                   <h4> Mic Doja</h4>
+                   <h5>Category: Pet Care </h5>
+                   <h5>Services: Cat Whisperer</h5>
+                   <p>
+                     <strong>Description: </strong>
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   </p>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <h4> Pet Cuts</h4>
+                   <h5>Category: Pet Grooming </h5>
+                   <h5>Services: Pet Barber</h5>
+                   <p>
+                     <strong>Description: </strong>
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   </p>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <h4> Ventura Pet Clinic</h4>
+                   <h5>Category: Pet Care </h5>
+                   <h5>Services: Pet Healthcare</h5>
+                   <p>
+                     <strong>Description: </strong>
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   </p>
+                 </td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+       </div>
+     </div>
+   </div>
 
 </div>
 
