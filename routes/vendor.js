@@ -2,26 +2,30 @@ const express     = require('express'),
       passport    = require('passport'),
       router      = express.Router({mergeParams: true}),
       flash       = require('connect-flash'),
-      Pet         = require('../models/pet'),
+      Vendor         = require('../models/vendor'),
       Comments    = require('../models/comment'),
       Mid         = require('../middleware/index');
 
 
+// RENDER CAMPGROUND ADD FORM
+router.get('/new', Mid.isLoggedIn, (req, res) => {
+  res.render('vendors/new');
+});
 
 // COMMENT FORM ROUTE
-router.get('/new', Mid.isLoggedIn, (req, res) => {
-  Pet.findById(req.params.id, (err, pet) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('comments/new', {pet: pet});
-    }
-  });
-});
+// router.get('/new', Mid.isLoggedIn, (req, res) => {
+//   Vendor.findById(req.params.id, (err, pet) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.render('comments/new', {pet: pet});
+//     }
+//   });
+// });
 
 // ADD COMMENT ROUTE
 router.post('/', Mid.isLoggedIn, (req, res) => {
-  Pet.findById(req.params.id, (err, pet) => {
+  Vendor.findById(req.params.id, (err, pet) => {
     if (err) {
       console.log(err);
       res.redirect('/pets');

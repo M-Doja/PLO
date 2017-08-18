@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<div class="container text-center">
+  <div class="row">
+    <form class="enterForm" action="/register" method="POST">
+      <h2 class="titleForm">New Vendor</h2>
+      <div class="form-group">
+        <label for="bizName">Business Name</label>
+        <input required class="form-control" id="bizName"type="text" name="bizName" placeholder="Business name">
+      </div>
+      <div class="form-group">
+        <label for="firstname">First Name </label>
+        <input class="form-control" id="firstname"type="text" name="bizFName" placeholder="First name">
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name </label>
+        <input class="form-control" id="lastname"type="text" name="bizLName" placeholder="Last name">
+      </div>
+      <div class="form-group">
+        <label for="avatar">Avatar URL</label>
+        <input class="form-control" id="avatar"type="text" name="bizAvatar" placeholder="Business avatar image URL here">
+      </div>
+      <div class="form-group">
+        <label for="bio">Bio</label>
+          <textarea class="form-control" id="bio"type="text" name="bio" placeholder="Your bio here..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="email">Email <em><sub class="reqInp"> ( Vendors Only )</sub></em></label>
+        <input class="form-control" id="email"type="text" name="email" placeholder="Email address">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input required class="form-control" id="password"type="password" name="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+
+        <div id="side">
+          <label for="private">New User </label>
+          <input checked class="form-control"type="radio" value="false" name="isVendor" id="private">
+        </div>
+        <div id="side2">
+          <label for="private2">New Vendor </label>
+          <input  class="form-control"type="radio" value="true" name="isVendor" id="private2">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="adminCode">Admin Code</label>
+        <input  class="form-control" id="adminCode"type="text" name="adminCode" placeholder="Admin Code">
+      </div>
+      <div class="form-group">
+        <input class="loginBtn submit"type="submit">
+        <a href="/vendors">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<% include ../partials/footer %>
